@@ -38,7 +38,7 @@ now you can PUBLISH ads in redis-cli
 go in mainSUBPUB.py
 
 define gps coordinates on client
-```{python}
+```{python3}
     bob_lat = 49.8986514
     bob_lon = 2.2145979
     bob = Listener(customer, bob_lat, bob_lon)
