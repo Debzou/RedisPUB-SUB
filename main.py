@@ -81,7 +81,7 @@ if __name__ == "__main__":
     customer.mset(adsNames)
     customer.mset(adsCities)
 
-    # test <35
+    # find cities in around 35km 
     radius35km(49.8986514, 2.2145979)
     # find an ad around amiens (35km)
     findAds35km("Amiens")

@@ -27,6 +27,7 @@ def radius35km(lat1, long1):
     """
     # print(customer.keys('*&lat'))
     l = []
+    # find keys with &lat at the end
     for item in customer.keys('*&lat'):
         # list cities < 35km
         
@@ -35,7 +36,7 @@ def radius35km(lat1, long1):
         lat2 = str(customer.get(nameCity+"&lat")).replace('\'', '')[1:]
         # 21.748 miles = 35km
         if(radius(lat1, long1, float(lat2), float(long2)) < 21.748):
-            #print("city next to %s %s is %s" % (lat1, long1, nameCity))
+            print("city next to %s %s is %s" % (lat1, long1, nameCity))
             l.append(nameCity)        
     return l
 
@@ -44,8 +45,7 @@ class Listener(threading.Thread):
     def __init__(self, r, bob_lat, bob_lon):
         threading.Thread.__init__(self)
         self.redis = r
-        self.pubsub = self.redis.pubsub()   
-        
+        self.pubsub = self.redis.pubsub() 
         self.pubsub.subscribe(radius35km(bob_lat, bob_lon))
 
     def run(self):
