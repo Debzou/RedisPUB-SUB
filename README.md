@@ -33,4 +33,33 @@ redis-cli
 ```
 now you can PUBLISH ads in redis-cli
 
+### Example 
+
+go in mainSUBPUB.py
+
+define gps coordinates on client
+```{python}
+    bob_lat = 49.8986514
+    bob_lon = 2.2145979
+    bob = Listener(customer, bob_lat, bob_lon)
+    bob.start()
+```
+execute cf mainSUBPUB.py
+
+resulat
+```{bas}
+city next to 49.8986514 2.2145979 is Longueau
+city next to 49.8986514 2.2145979 is Corbie
+city next to 49.8986514 2.2145979 is Albert
+city next to 49.8986514 2.2145979 is Doullens
+city next to 49.8986514 2.2145979 is Amiens
+```
+Bob is subcribed to Longuau , Corbie , Albert ....
+
+go in redis-cli
+```{bash}
+PUBLISH Corbie gardened
+```
+on python3 console we can see appear "gardened"
+Attention it works only for cities within a 35 km zone, after BOB will no longer be subscribed and will receive by announcements.
 
