@@ -15,3 +15,22 @@ A person (with a latitude and longitude) subscribes to the announcements of citi
 This person will receive a message when there is a job offer in his perimeter which has just appeared.
 
 cf mainSUBPUB.py
+
+### how it works ?
+
+start redis server
+```{bash}
+redis-server
+```
+start script python ( before install library python )
+```{}
+python3 mainSUBPUB.py
+````
+Go in redis customer
+
+```{bash}
+redis-cli
+```
+now you can PUBLISH ads in redis-cli
+
+
