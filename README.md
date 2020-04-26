@@ -17,7 +17,7 @@ This person will receive a message when there is a job offer in this perimeter w
 cf mainSUBPUB.py
 
 ### how it works ?
-
+ 
 start redis server
 ```{bash}
 redis-server
